@@ -32,6 +32,7 @@ class MyService(Service):
 
     # Any additional fields must be excluded for Pydantic to work
     model: object = Field(exclude=True)
+    logger: object = Field(exclude=True)
 
     def __init__(self):
         super().__init__(
@@ -55,6 +56,7 @@ class MyService(Service):
             ],
             has_ai=False
         )
+        self.logger = get_logger(settings)
 
     def process(self, data):
         raw = data["image"].data
