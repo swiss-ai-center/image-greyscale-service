@@ -72,4 +72,3 @@ class MyService(Service):
                 type=input_type
             )
         }
-
